@@ -9,6 +9,10 @@ const scentSchema = new Schema({
     type: Number,
     required: false
   },
+  image: {
+    type: String,
+    required: true
+  },
   available: {
     type: Boolean,
     default: true
@@ -39,6 +43,10 @@ const scentSchema = new Schema({
   },
   color: {
     type: String,
+    required: false
+  },
+  features: {
+    type: [String],
     required: false
   }
 })

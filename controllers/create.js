@@ -10,45 +10,43 @@ const scent = require('../models/scent')
 const sound = require('../models/sound')
 
 const createItem = async (req, res) => {
-  const { type, ...body } = req.body
-
   let response
 
   try {
-    switch (type) {
-      case 'light':
-        response = await light.create(body)
+    switch (req.body.category) {
+      case 'lights':
+        response = await light.create(req.body)
         break
       case 'body':
-        response = await bodyitem.create(body)
+        response = await bodyitem.create(req.body)
         break
       case 'bodyaccessories':
-        response = await bodyaccessories.create(body)
+        response = await bodyaccessories.create(req.body)
         break
       case 'electronics':
-        response = await electronics.create(body)
+        response = await electronics.create(req.body)
         break
       case 'interior':
-        response = await interior.create(body)
+        response = await interior.create(req.body)
         break
       case 'lookingmirror':
-        response = await lookingmirror.create(body)
+        response = await lookingmirror.create(req.body)
         break
       case 'nickel':
-        response = await nickel.create(body)
+        response = await nickel.create(req.body)
         break
       case 'player':
-        response = await player.create(body)
+        response = await player.create(req.body)
         break
       case 'scent':
-        response = await scent.create(body)
+        response = await scent.create(req.body)
         break
       case 'sound':
-        response = await sound.create(body)
+        response = await sound.create(req.body)
         break
 
       default:
-        throw new Error(`Invalid type: ${type}`)
+        throw new Error(`Invalid type: ${req.body.category}`)
     }
 
     res.status(200).json({ message: 'ok' })

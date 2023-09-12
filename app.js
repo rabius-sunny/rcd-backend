@@ -16,7 +16,7 @@ connect()
 
 // Routes
 app.get('/checking', (req, res) => res.send('checking :: root route working'))
-app.use('/rcd/', createRoute)
+app.use('/rcd', createRoute)
 
 const PORT = process.env.PORT || 6060
 

@@ -9,6 +9,10 @@ const soundSchema = new Schema({
     type: Number,
     required: false
   },
+  image: {
+    type: String,
+    required: true
+  },
   available: {
     type: Boolean,
     default: true
